@@ -1,4 +1,4 @@
-# C Web Compiler — local
+# C Web Compiler - local
 
 Mini IDE web locale pour écrire, compiler et exécuter du C dans un navigateur.
 
