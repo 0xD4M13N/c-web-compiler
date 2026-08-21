@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      PORT: "3001"
+      RUNNER_IMAGE: "c-web-compiler-runner:local"
+      MAX_CODE_BYTES: "65536"
+      MAX_STDIN_BYTES: "16384"
+      COMPILE_TIMEOUT_MS: "10000"
+      RUN_TIMEOUT_MS: "3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./client/dist:/app/client/dist:ro
+    restart: unless-stopped
