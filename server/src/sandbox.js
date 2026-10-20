@@ -57,7 +57,7 @@ export async function compileAndRun(code, stdin) {
     await fs.writeFile(path.join(workspace, "main.c"), code, "utf8");
 
     const common = [
-      "run", "--rm",
+      "run", "-i", "--rm",
       "--network=none",
       "--read-only",
       "--tmpfs", "/tmp:rw,nosuid,nodev,noexec,size=64m",
